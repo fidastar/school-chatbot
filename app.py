@@ -1,14 +1,21 @@
+import streamlit as st
+import google.generativeai as gemini
+from PyPDF2 import PdfReader
+
 def load_context ():
   context = ""
-  filenames = ["information.pdf","fees_2024-25","latest results.pdf"]
+  filenames = ["Information.pdf","fees_2024-25 (1).pdf","Latest results.pdf"]
   for name in filenames:
     try:
-      with open(name, "r") as f:
-           context +=
-  f"\n{f.read()}"
-        except:
-          continue
-          return context
+      reader = PdfReader(name)
+      for page in reader.pages:
+        text =
+  page.extract_text()
+                  if text:
+                    context += text
+except Exception as e:
+st.error(f"Error reading {name}: {e}")
+                             return context
           {
   "nbformat": 4,
   "nbformat_minor": 0,
