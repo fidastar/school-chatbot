@@ -40,7 +40,7 @@ embeddings = GoogleGenerativeAIEmbeddings(
     model="models/embedding-001",
     google_api_key=st.secrets["GEMINI_API_KEY"]  # Add this part!
 )
-    return Chroma.from_documents(chunks, embeddings)
+return Chroma.from_documents(chunks, embeddings)
 
 # Start the 'brain'
 vectorstore = setup_alpha_brain()
