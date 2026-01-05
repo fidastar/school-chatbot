@@ -1,4 +1,15 @@
-{
+def load_context ():
+  context = ""
+  filenames = ["information.pdf","fees_2024-25","latest results.pdf"]
+  for name in filenames:
+    try:
+      with open(name, "r") as f:
+           context +=
+  f"\n{f.read()}"
+        except:
+          continue
+          return context
+          {
   "nbformat": 4,
   "nbformat_minor": 0,
   "metadata": {
