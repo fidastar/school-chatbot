@@ -9,13 +9,14 @@ def load_context ():
     try:
       reader = PdfReader(name)
       for page in reader.pages:
-        text =
+        extracted =
   page.extract_text()
-                  if text:
-                    context += text
-except Exception as e:
-st.error(f"Error reading {name}: {e}")
-                             return context
+                  if extracted:
+                    context += 
+extracted + "\n"
+         except Exception as e:
+             st.error(f"Could not read {name}: {e}")
+                                          return context
           {
   "nbformat": 4,
   "nbformat_minor": 0,
