@@ -35,7 +35,11 @@ def setup_alpha_brain():
     # Process documents for searching
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     chunks = splitter.split_documents(all_docs)
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    # Change this line in your setup_alpha_brain function:
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+    google_api_key=st.secrets["GEMINI_API_KEY"]  # Add this part!
+)
     return Chroma.from_documents(chunks, embeddings)
 
 # Start the 'brain'
