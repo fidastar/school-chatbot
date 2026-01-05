@@ -1,0 +1,15 @@
+@st.cache_resource
+def setup_alpha_brain():
+    # 4 spaces here...
+    files = ["Information.pdf", "fees_2024-25 (1).pdf", "Latest results.pdf"]
+    all_docs = []
+    
+    # 4 spaces here...
+    for file in files:
+        if os.path.exists(file):
+            loader = PyPDFLoader(file)
+            all_docs.extend(loader.load())
+
+    # 4 spaces here...
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    return Chroma.from_documents(chunks, embeddings)  # <--- THIS LINE was the error
