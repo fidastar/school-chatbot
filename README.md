@@ -1,5 +1,3 @@
-# school-chatbot
-school AI chatbot for - official purpose only.
 # 🎓 ALPHA - School Information Chatbot
 
 An intelligent chatbot built with Streamlit and Google Gemini AI that answers questions about school information, fees, and academic results.
